@@ -1,4 +1,5 @@
 import React from "react";
+import Education from "./Components/Education";
 import Experience from "./Components/Experience";
 import GeneralInfo from "./Components/GeneralInfo";
 import DisplayCV from "./Components/DisplayCV";
@@ -19,11 +20,15 @@ class App extends React.Component {
         introduction: "",
       },
       jobs: [],
+      education: [],
     };
     this.receiveInfo = this.receiveInfo.bind(this);
     this.createNewJob = this.createNewJob.bind(this);
     this.updateJob = this.updateJob.bind(this);
     this.deleteJob = this.deleteJob.bind(this);
+    this.createNewEducation = this.createNewEducation.bind(this);
+    this.updateEducation = this.updateEducation.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
   }
 
   receiveInfo(e) {
@@ -76,8 +81,49 @@ class App extends React.Component {
     });
   }
 
+  createNewEducation(e) {
+    e.preventDefault();
+    this.setState({
+      education: [
+        ...this.state.education,
+        {
+          establishment: "",
+          city: "",
+          qualification: "",
+          subject: "",
+          dateFrom: "",
+          dateTo: "",
+          notes: "",
+          id: uniqid(),
+        },
+      ],
+    });
+  }
+
+  updateEducation(e, educationId) {
+    const { education } = this.state;
+    const educationCopy = [...education];
+    let educationToUpdate = educationCopy.filter((item) => {
+      return item.id === educationId;
+    });
+    educationToUpdate[0][e.target.name] = e.target.value;
+    this.setState({
+      education: [...educationCopy],
+    });
+  }
+
+  deleteEducation(e, educationId) {
+    e.preventDefault();
+    const { education } = this.state;
+    this.setState({
+      education: education.filter((item) => {
+        return item.id !== educationId;
+      }),
+    });
+  }
+
   render() {
-    const { user, jobs } = this.state;
+    const { user, jobs, education } = this.state;
 
     return (
       <div className="main-container">
@@ -98,8 +144,23 @@ class App extends React.Component {
                 />
               );
             })}
+            <button onClick={this.createNewJob}>Add new job</button>
           </section>
-          <button onClick={this.createNewJob}>Add new job</button>
+
+          <section>
+            <h1>Education </h1>
+            {education.map((school) => {
+              return (
+                <Education
+                  key={school.id}
+                  school={school}
+                  updateEducation={this.updateEducation}
+                  deleteEducation={this.deleteEducation}
+                />
+              );
+            })}
+            <button onClick={this.createNewEducation}>Add educations</button>
+          </section>
         </form>
         <DisplayCV data={this.state} />
       </div>

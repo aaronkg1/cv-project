@@ -79,8 +79,7 @@ class GeneralInfo extends React.Component {
           id="email"
         />
         <label htmlFor="introduction">Introduction: </label>
-        <input
-          type="text"
+        <textarea
           name="introduction"
           onChange={(e) => {
             this.props.receiveInfo(e);
