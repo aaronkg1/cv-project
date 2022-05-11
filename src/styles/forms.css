@@ -4,17 +4,22 @@
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px;
+  padding: 20px;
+  margin-top: 1rem;
 }
 
 .section-container {
   text-align: center;
+  border-bottom: black solid 1px;
+  padding: 1rem 0px 1rem 0px;
 }
 
 .experience,
-.education {
-  background-color: rgba(128, 128, 128, 0.386);
-  margin: 10px 0px 10px 0px;
+.education,
+.general-info,
+.skills {
+  background-color: rgba(196, 196, 196, 0.209);
+  margin: 2rem 0px 10px 0px;
 }
 
 input {
@@ -23,4 +28,9 @@ input {
 
 textarea {
   width: 100%;
+  min-height: fit-content;
+}
+
+.form-value {
+  color: rgb(101, 101, 101);
 }

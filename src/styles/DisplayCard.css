@@ -1,16 +1,27 @@
 .contact-card,
-.job-card,
-.education-card {
+.card {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   justify-content: center;
   min-width: 100%;
-  background-color: rgba(128, 128, 128, 0.165);
   gap: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0px 0px 0.5rem;
 }
 
-.job-card h2 {
+.about-me {
+  padding: 1.5rem 0px 1rem 0.5rem;
+}
+
+.card h2 {
   font-size: 1.5rem;
+}
+
+.date-range {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.skill {
+  list-style: circle;
 }

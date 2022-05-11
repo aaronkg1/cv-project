@@ -1,9 +1,16 @@
 .cv-container header {
   min-width: 100%;
   font-size: 4rem;
-  background-color: blue;
+  background-color: rgba(0, 0, 221, 0.526);
   padding: 10px;
   color: white;
+}
+
+.cv-container h1 {
+  color: rgba(0, 0, 221, 0.526);
+  width: 100%;
+  border-bottom: black solid 1px;
+  padding-bottom: 0.5rem;
 }
 
 .cv-container {
@@ -15,8 +22,19 @@
 
 .contact,
 .jobs,
-.education-section {
+.education-section,
+.skills-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.about-me-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cv-value {
+  color: rgb(101, 101, 101);
 }

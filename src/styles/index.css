@@ -150,3 +150,15 @@ h1 {
   color: green;
   cursor: pointer;
 }
+
+.delete-btn {
+  font-size: 30px;
+  margin: 10px 0px 10px 0px;
+  color: red;
+  cursor: pointer;
+  align-self: center;
+}
+
+.cv-value {
+  color: rgb(101, 101, 101);
+}
