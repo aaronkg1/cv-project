@@ -128,12 +128,12 @@ class App extends React.Component {
     return (
       <div className="main-container">
         <form className="half-page">
-          <section>
+          <section className="section-container">
             <h1>General Information</h1>
             <GeneralInfo user={user} receiveInfo={this.receiveInfo} />
           </section>
-          <section>
-            <h1>Experience </h1>
+          <section className="section-container">
+            <h1>Job Experience</h1>
             {jobs.map((job) => {
               return (
                 <Experience
@@ -144,11 +144,14 @@ class App extends React.Component {
                 />
               );
             })}
-            <button onClick={this.createNewJob}>Add new job</button>
+            <i
+              className="fa-solid fa-circle-plus add-button"
+              onClick={this.createNewJob}
+            ></i>
           </section>
 
-          <section>
-            <h1>Education </h1>
+          <section className="section-container">
+            <h1>Education History</h1>
             {education.map((school) => {
               return (
                 <Education
@@ -159,9 +162,11 @@ class App extends React.Component {
                 />
               );
             })}
-            <button onClick={this.createNewEducation}>
-              Add Education History
-            </button>
+
+            <i
+              className="fa-solid fa-circle-plus add-button"
+              onClick={this.createNewEducation}
+            ></i>
           </section>
         </form>
         <DisplayCV data={this.state} />
