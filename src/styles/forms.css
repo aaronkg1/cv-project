@@ -1,0 +1,17 @@
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+
+.experience {
+  background-color: rgba(128, 128, 128, 0.386);
+  margin: 10px 0px 10px 0px;
+}
+
+input {
+  width: 100%;
+}
