@@ -125,6 +125,7 @@ table {
 
 :root {
   font-size: 1vw;
+  box-sizing: border-box;
 }
 
 .main-container {
@@ -135,13 +136,6 @@ table {
 .half-page {
   width: 50%;
   padding: 10px 10px 10px 10px;
-}
-
-.half-page header {
-  font-size: 4rem;
-  background-color: blue;
-  padding: 10px;
-  color: white;
 }
 
 h1 {
