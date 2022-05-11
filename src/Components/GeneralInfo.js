@@ -12,7 +12,9 @@ class GeneralInfo extends React.Component {
   render() {
     return (
       <div className="general-info form-section" key={this.state.id}>
-        <label htmlFor="firstName">First Name: </label>
+        <label className="form-value" htmlFor="firstName">
+          First Name:{" "}
+        </label>
         <input
           type="text"
           name="firstName"
@@ -22,7 +24,9 @@ class GeneralInfo extends React.Component {
           value={this.props.firstName}
           id="firstName"
         />
-        <label htmlFor="lastName">Last Name: </label>
+        <label className="form-value" htmlFor="lastName">
+          Last Name:{" "}
+        </label>
         <input
           type="text"
           name="lastName"
@@ -32,7 +36,9 @@ class GeneralInfo extends React.Component {
           value={this.props.lastName}
           id="lastName"
         />
-        <label htmlFor="title">Title: </label>
+        <label className="form-value" htmlFor="title">
+          Title:{" "}
+        </label>
         <select
           type="text"
           name="title"
@@ -48,7 +54,9 @@ class GeneralInfo extends React.Component {
           <option value="miss">Miss</option>
           <option value="mrs">Mrs</option>
         </select>
-        <label htmlFor="address">Address: </label>
+        <label className="form-value" htmlFor="address">
+          Address:{" "}
+        </label>
         <input
           type="text"
           name="address"
@@ -58,7 +66,9 @@ class GeneralInfo extends React.Component {
           value={this.props.address}
           id="address"
         />
-        <label htmlFor="telephone">Telephone: </label>
+        <label className="form-value" htmlFor="telephone">
+          Telephone:{" "}
+        </label>
         <input
           type="text"
           name="telephone"
@@ -68,7 +78,9 @@ class GeneralInfo extends React.Component {
           value={this.props.telephone}
           id="telephone"
         />
-        <label htmlFor="email">Email: </label>
+        <label className="form-value" htmlFor="email">
+          Email:{" "}
+        </label>
         <input
           type="text"
           name="email"
@@ -78,9 +90,12 @@ class GeneralInfo extends React.Component {
           value={this.props.email}
           id="email"
         />
-        <label htmlFor="introduction">Introduction: </label>
+        <label className="form-value" htmlFor="introduction">
+          Introduction:{" "}
+        </label>
         <textarea
           name="introduction"
+          rows="5"
           onChange={(e) => {
             this.props.receiveInfo(e);
           }}

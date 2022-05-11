@@ -14,7 +14,9 @@ class Experience extends React.Component {
     const { id } = this.state;
     return (
       <div className="experience form-section">
-        <label htmlFor="jobTitle">Job Title: </label>
+        <label htmlFor="jobTitle" className="form-value">
+          Job Title:{" "}
+        </label>
         <input
           type="text"
           id="jobTitle"
@@ -24,7 +26,9 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
-        <label htmlFor="company">Company: </label>
+        <label htmlFor="company" className="form-value">
+          Company:{" "}
+        </label>
         <input
           type="text"
           id="company"
@@ -34,7 +38,9 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
-        <label htmlFor="city">City: </label>
+        <label htmlFor="city" className="form-value">
+          City:{" "}
+        </label>
         <input
           type="text"
           id="city"
@@ -44,7 +50,9 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
-        <label htmlFor="description">Job Description: </label>
+        <label htmlFor="description" className="form-value">
+          Job Description:{" "}
+        </label>
         <textarea
           id="description"
           name="description"
@@ -53,7 +61,9 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         ></textarea>
-        <label htmlFor="dateFrom">From: </label>
+        <label htmlFor="dateFrom" className="form-value">
+          From:{" "}
+        </label>
         <input
           type="date"
           id="dateFrom"
@@ -63,7 +73,9 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
-        <label htmlFor="dateTo">To: </label>
+        <label htmlFor="dateTo" className="form-value">
+          To:{" "}
+        </label>
         <input
           type="date"
           id="dateTo"
@@ -73,13 +85,12 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
-        <button
+        <i
+          className="fa-solid fa-circle-minus delete-btn"
           onClick={(e) => {
             this.props.deleteJob(e, id);
           }}
-        >
-          Delete
-        </button>
+        ></i>
       </div>
     );
   }

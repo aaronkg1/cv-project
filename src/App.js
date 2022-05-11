@@ -4,6 +4,7 @@ import Experience from "./Components/Experience";
 import GeneralInfo from "./Components/GeneralInfo";
 import DisplayCV from "./Components/DisplayCV";
 import uniqid from "uniqid";
+import Skill from "./Components/Skills";
 import "./styles/index.css";
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends React.Component {
       user: {
         firstName: "",
         lastName: "",
-        title: "mr",
+        title: " ",
         address: "",
         telephone: "",
         email: "",
@@ -21,6 +22,7 @@ class App extends React.Component {
       },
       jobs: [],
       education: [],
+      skills: [],
     };
     this.receiveInfo = this.receiveInfo.bind(this);
     this.createNewJob = this.createNewJob.bind(this);
@@ -29,6 +31,9 @@ class App extends React.Component {
     this.createNewEducation = this.createNewEducation.bind(this);
     this.updateEducation = this.updateEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
+    this.createNewSkill = this.createNewSkill.bind(this);
+    this.updateSkill = this.updateSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
   }
 
   receiveInfo(e) {
@@ -92,8 +97,8 @@ class App extends React.Component {
           city: "",
           qualification: "",
           subject: "",
-          dateFrom: "2020-10-15",
-          dateTo: "2020-10-15",
+          dateFrom: "",
+          dateTo: "",
           notes: "",
           id: uniqid(),
         },
@@ -123,8 +128,43 @@ class App extends React.Component {
     });
   }
 
+  createNewSkill(e) {
+    e.preventDefault();
+    this.setState({
+      skills: [
+        ...this.state.skills,
+        {
+          skill: "",
+          description: "",
+          id: uniqid(),
+        },
+      ],
+    });
+  }
+
+  updateSkill(e, skillId) {
+    const { skills } = this.state;
+    const skillsCopy = [...skills];
+    let skillToUpdate = skillsCopy.filter((skill) => {
+      return skill.id === skillId;
+    });
+    skillToUpdate[0][e.target.name] = e.target.value;
+    this.setState({
+      skills: [...skillsCopy],
+    });
+  }
+
+  deleteSkill(e, skillId) {
+    const { skills } = this.state;
+    this.setState({
+      skills: skills.filter((skill) => {
+        return skill.id !== skillId;
+      }),
+    });
+  }
+
   render() {
-    const { user, jobs, education } = this.state;
+    const { user, jobs, education, skills } = this.state;
 
     return (
       <div className="main-container">
@@ -167,6 +207,23 @@ class App extends React.Component {
             <i
               className="fa-solid fa-circle-plus add-button"
               onClick={this.createNewEducation}
+            ></i>
+          </section>
+          <section className="section-container">
+            <h1>Strengths and Skills</h1>
+            {skills.map((skill) => {
+              return (
+                <Skill
+                  key={skill.id}
+                  skill={skill}
+                  updateSkill={this.updateSkill}
+                  deleteSkill={this.deleteSkill}
+                />
+              );
+            })}
+            <i
+              className="fa-solid fa-circle-plus add-button"
+              onClick={this.createNewSkill}
             ></i>
           </section>
         </form>

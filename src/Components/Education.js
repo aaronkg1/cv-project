@@ -80,14 +80,12 @@ class Education extends React.Component {
             this.props.updateEducation(e, school.id);
           }}
         />
-
-        <button
+        <i
+          className="fa-solid fa-circle-minus delete-btn"
           onClick={(e) => {
             this.props.deleteEducation(e, school.id);
           }}
-        >
-          Delete
-        </button>
+        ></i>
       </div>
     );
   }
