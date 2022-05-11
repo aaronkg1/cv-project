@@ -1,5 +1,7 @@
 import React from "react";
 import _ from "lodash";
+import DisplayCard from "./DisplayCard";
+import "../styles/DisplayCV.css";
 
 class DisplayCV extends React.Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class DisplayCV extends React.Component {
   }
 
   render() {
-    const { user, jobs } = this.props.data;
+    const { user, jobs, education } = this.props.data;
     let address;
     let telephone;
     let email;
@@ -38,18 +40,19 @@ class DisplayCV extends React.Component {
         ));
 
     return (
-      <div className="half-page">
+      <div className="half-page cv-container">
         <header>
           {user.firstName} {user.lastName}
         </header>
         <div className="contact">
           <h1>Contact</h1>
-          <p>
-            {_.capitalize(user.title)} {user.firstName} {user.lastName}
-          </p>
-          {address}
-          {telephone}
-          {email}
+          <DisplayCard data={user} title="user" />
+        </div>
+        <div className="jobs">
+          <h1>Experience</h1>
+          {jobs.map((job) => {
+            return <DisplayCard data={job} title="job" key={job.id} />;
+          })}
         </div>
       </div>
     );
