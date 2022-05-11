@@ -44,6 +44,15 @@ class Experience extends React.Component {
             this.props.updateJob(e, id);
           }}
         />
+        <label htmlFor="description">Job Description: </label>
+        <textarea
+          id="description"
+          name="description"
+          value={job.description}
+          onChange={(e) => {
+            this.props.updateJob(e, id);
+          }}
+        ></textarea>
         <label htmlFor="dateFrom">From: </label>
         <input
           type="date"

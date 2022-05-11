@@ -1,6 +1,8 @@
 import React from "react";
 import _ from "lodash";
 import "../styles/DisplayCard.css";
+import capitalise from "../utilities/capitalise-all-words";
+import { format, parseISO } from "date-fns";
 
 class DisplayCard extends React.Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class DisplayCard extends React.Component {
         <div className="contact-card">
           <h2>
             {_.capitalize(data.title)} {_.capitalize(data.firstName)}{" "}
-            {_.capitalize(data.lastName)}
+            {data.lastName}
           </h2>
           <p>Address: {data.address}</p>
           <p>Telephone: {data.telephone}</p>
@@ -34,25 +36,41 @@ class DisplayCard extends React.Component {
       );
     }
     if (this.props.title === "job") {
+      let dateFrom;
+      let dateTo;
+      if (data.dateFrom === "") {
+        dateFrom = null;
+      } else {
+        dateFrom = format(new Date(data.dateFrom), "dd-MM-yy");
+      }
+      if (data.dateTo === "") {
+        dateFrom = null;
+      } else {
+        dateTo = format(new Date(data.dateTo), "dd-MM-yy");
+      }
       return (
         <div className="job-card">
-          <h2>{_.capitalize(data.jobTitle)}</h2>
-          <p>Company: {_.capitalize(data.company)}</p>
-          <p>Location: {_.capitalize(data.city)}</p>
+          <h2>{capitalise(data.jobTitle)}</h2>
+          <p>Company: {capitalise(data.company)}</p>
+          <p>Location: {capitalise(data.city)}</p>
+          <p>{data.description}</p>
           <p>
-            Date: {_.capitalize(data.dateFrom)} - {_.capitalize(data.dateTo)}
+            Date: {dateFrom} - {dateTo}
           </p>
         </div>
       );
     } else if (this.props.title === "education") {
+      const dateFrom = format(new Date(data.dateFrom), "dd-MM-yy");
+      const dateTo = format(new Date(data.dateTo), "dd-MM-yy");
       return (
         <div className="education-card">
-          <h2>{_.capitalize(data.establishment)}</h2>
+          <h2>{capitalise(data.establishment)}</h2>
           <p>Location: {_.capitalize(data.city)}</p>
           <p>Subject: {_.capitalize(data.subject)}</p>
           <p>Qualification: {_.capitalize(data.qualification)}</p>
+          <p>{data.notes}</p>
           <p>
-            Date: {data.dateFrom} - {data.dateTo}
+            Date: {dateFrom} - {dateTo}
           </p>
         </div>
       );
