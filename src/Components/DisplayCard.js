@@ -8,9 +8,9 @@ class DisplayCard extends React.Component {
     this.state = { ...this.props.data };
   }
   render() {
-    if (this.props.title === "user") {
-      const { data } = this.props;
+    const { data } = this.props;
 
+    if (this.props.title === "user") {
       return (
         <div className="contact-card">
           <h2>
@@ -34,29 +34,25 @@ class DisplayCard extends React.Component {
       );
     }
     if (this.props.title === "job") {
-      const { data } = this.props;
-
       return (
         <div className="job-card">
           <h2>{_.capitalize(data.jobTitle)}</h2>
           <p>Company: {_.capitalize(data.company)}</p>
           <p>Location: {_.capitalize(data.city)}</p>
           <p>
-            {_.capitalize(data.dateFrom)} - {_.capitalize(data.dateTo)}
+            Date: {_.capitalize(data.dateFrom)} - {_.capitalize(data.dateTo)}
           </p>
         </div>
       );
     } else if (this.props.title === "education") {
-      const education = this.props.data;
       return (
-        <div className="educationCard">
-          <h2>{_.capitalize(education.establishment)}</h2>
-          <p>Location: {_.capitalize(education.city)}</p>
-          <p>Subject: {_.capitalize(education.subject)}</p>
-          <p>Qualification: {_.capitalize(education.qualification)}</p>
+        <div className="education-card">
+          <h2>{_.capitalize(data.establishment)}</h2>
+          <p>Location: {_.capitalize(data.city)}</p>
+          <p>Subject: {_.capitalize(data.subject)}</p>
+          <p>Qualification: {_.capitalize(data.qualification)}</p>
           <p>
-            Dates: {education.dateFrom.toLocaleDateString()} -{" "}
-            {education.dateTo.toLocaleDateString()}
+            Date: {data.dateFrom} - {data.dateTo}
           </p>
         </div>
       );

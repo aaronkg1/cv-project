@@ -20,22 +20,12 @@ class Education extends React.Component {
             this.props.updateEducation(e, school.id);
           }}
         />
-        <label htmlFor="city">City: </label>
+        <label htmlFor="city">Location: </label>
         <input
           type="text"
           id="city"
           name="city"
           value={school.city}
-          onChange={(e) => {
-            this.props.updateEducation(e, school.id);
-          }}
-        />
-        <label htmlFor="qualification">Qualification: </label>
-        <input
-          type="text"
-          id="qualification"
-          name="qualification"
-          value={school.qualification}
           onChange={(e) => {
             this.props.updateEducation(e, school.id);
           }}
@@ -50,6 +40,17 @@ class Education extends React.Component {
             this.props.updateEducation(e, school.id);
           }}
         />
+        <label htmlFor="qualification">Qualification: </label>
+        <input
+          type="text"
+          id="qualification"
+          name="qualification"
+          value={school.qualification}
+          onChange={(e) => {
+            this.props.updateEducation(e, school.id);
+          }}
+        />
+
         <label htmlFor="dateFrom">From: </label>
         <input
           type="date"
@@ -57,7 +58,7 @@ class Education extends React.Component {
           name="dateFrom"
           value={school.dateFrom}
           onChange={(e) => {
-            this.props.updateJob(e, school.id);
+            this.props.updateEducation(e, school.id);
           }}
         />
         <label htmlFor="dateTo">To: </label>
@@ -67,7 +68,7 @@ class Education extends React.Component {
           name="dateTo"
           value={school.dateTo}
           onChange={(e) => {
-            this.props.updateJob(e, school.id);
+            this.props.updateEducation(e, school.id);
           }}
         />
         <label htmlFor="notes">Notes: </label>

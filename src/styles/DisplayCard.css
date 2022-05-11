@@ -1,5 +1,6 @@
 .contact-card,
-.job-card {
+.job-card,
+.education-card {
   display: flex;
   flex-direction: column;
   align-items: baseline;

@@ -54,6 +54,12 @@ class DisplayCV extends React.Component {
             return <DisplayCard data={job} title="job" key={job.id} />;
           })}
         </div>
+        <div className="education-section">
+          <h1>Education</h1>
+          {education.map((item) => {
+            return <DisplayCard data={item} title="education" key={item.id} />;
+          })}
+        </div>
       </div>
     );
   }

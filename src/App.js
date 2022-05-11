@@ -159,7 +159,9 @@ class App extends React.Component {
                 />
               );
             })}
-            <button onClick={this.createNewEducation}>Add educations</button>
+            <button onClick={this.createNewEducation}>
+              Add Education History
+            </button>
           </section>
         </form>
         <DisplayCV data={this.state} />

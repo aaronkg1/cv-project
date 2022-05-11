@@ -14,7 +14,8 @@
 }
 
 .contact,
-.jobs {
+.jobs,
+.education-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
