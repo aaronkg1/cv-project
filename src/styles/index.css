@@ -133,11 +133,13 @@ table {
 .main-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .half-page {
-  width: 50%;
+  min-width: 46%;
   padding: 10px 2rem 10px 2rem;
+  flex-grow: 1;
 }
 
 h1 {
@@ -157,8 +159,4 @@ h1 {
   color: red;
   cursor: pointer;
   align-self: center;
-}
-
-.cv-value {
-  color: rgb(101, 101, 101);
 }
