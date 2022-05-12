@@ -36,6 +36,21 @@ class GeneralInfo extends React.Component {
           value={this.props.lastName}
           id="lastName"
         />
+        <div className="photo-upload">
+          <label className="form-value" htmlFor="picture-upload">
+            Profile Picture:
+          </label>
+          <input
+            className="file-upload"
+            type="file"
+            onChange={this.props.onFileChange}
+            name="profilePic"
+          />
+          <i
+            className="fa-solid fa-circle-plus add-button"
+            onClick={this.props.onFileUpload}
+          ></i>
+        </div>
         <label className="form-value" htmlFor="title">
           Title:{" "}
         </label>

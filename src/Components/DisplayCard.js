@@ -14,30 +14,39 @@ class DisplayCard extends React.Component {
 
     if (this.props.title === "user") {
       return (
-        <div className="contact-card">
-          <h2>
-            {_.capitalize(data.title)} {_.capitalize(data.firstName)}{" "}
-            {data.lastName}
-          </h2>
-          <p>
-            <span className="cv-value">Address: </span>
-            {data.address}
-          </p>
-          <p>
-            <span className="cv-value">Telephone: </span>
-            {data.telephone}
-          </p>
-          <p>
-            <span className="cv-value">Email: </span>
-            <a
-              href={data.email}
-              onClick={(e) => {
-                e.preventDefault();
-              }}
-            >
-              {data.email}
-            </a>
-          </p>
+        <div className="split contact-card">
+          <div className="half-card">
+            <h2>
+              {_.capitalize(data.title)} {_.capitalize(data.firstName)}{" "}
+              {data.lastName}
+            </h2>
+            <p>
+              <span className="cv-value">Address: </span>
+              {data.address}
+            </p>
+            <p>
+              <span className="cv-value">Telephone: </span>
+              {data.telephone}
+            </p>
+            <p>
+              <span className="cv-value">Email: </span>
+              <a
+                href={data.email}
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                {data.email}
+              </a>
+            </p>
+          </div>
+          <div className="half-card">
+            <img
+              className="picture-display"
+              src={data.profilePic.src}
+              alt={data.profilePic.name}
+            />
+          </div>
         </div>
       );
     }
