@@ -1,4 +1,3 @@
-.contact-card,
 .card {
   display: flex;
   flex-direction: column;
@@ -24,4 +23,24 @@
 
 .skill {
   list-style: circle;
+}
+
+.half-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.picture-display {
+  width: 10rem;
+}
+
+.split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0px 0px 0.5rem;
 }

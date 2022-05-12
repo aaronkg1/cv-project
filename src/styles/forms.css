@@ -22,6 +22,17 @@
   margin: 2rem 0px 10px 0px;
 }
 
+.photo-upload {
+  display: flex;
+  justify-items: left;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-upload {
+  width: fit-content;
+}
+
 input {
   width: 100%;
 }
