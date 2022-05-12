@@ -6,6 +6,7 @@ import DisplayCV from "./Components/DisplayCV";
 import uniqid from "uniqid";
 import Skill from "./Components/Skills";
 import "./styles/index.css";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ class App extends React.Component {
         telephone: "",
         email: "",
         introduction: "",
+        profilePic: { src: require("./Assets/blank-profile-pic.png") },
       },
       jobs: [],
       education: [],
@@ -34,6 +36,8 @@ class App extends React.Component {
     this.createNewSkill = this.createNewSkill.bind(this);
     this.updateSkill = this.updateSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
+    this.onFileChange = this.onFileChange.bind(this);
+    this.onFileUpload = this.onFileUpload.bind(this);
   }
 
   receiveInfo(e) {
@@ -163,6 +167,27 @@ class App extends React.Component {
     });
   }
 
+  onFileChange(e) {
+    const { user } = this.state;
+    this.setState({ user: { ...user, profilePic: e.target.files[0] } });
+  }
+
+  onFileUpload() {
+    const { user } = this.state;
+
+    const imageSrc = URL.createObjectURL(user.profilePic);
+    console.log(imageSrc);
+    this.setState({
+      user: {
+        ...user,
+        profilePic: {
+          ...user.profilePic,
+          src: imageSrc,
+        },
+      },
+    });
+  }
+
   render() {
     const { user, jobs, education, skills } = this.state;
 
@@ -171,7 +196,12 @@ class App extends React.Component {
         <form className="half-page">
           <section className="section-container">
             <h1>General Information</h1>
-            <GeneralInfo user={user} receiveInfo={this.receiveInfo} />
+            <GeneralInfo
+              user={user}
+              receiveInfo={this.receiveInfo}
+              onFileChange={this.onFileChange}
+              onFileUpload={this.onFileUpload}
+            />
           </section>
           <section className="section-container">
             <h1>Job Experience</h1>
