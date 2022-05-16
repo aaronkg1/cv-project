@@ -123,7 +123,9 @@ const App = () => {
     setSkills(skillsCopy);
   };
   const onFileChange = (e) => {
-    setUser({ ...user, profilePic: e.target.files[0] });
+    const userCopy = { ...user };
+    userCopy.profilePic = e.target.files[0];
+    setUser(userCopy);
   };
 
   const onFileUpload = () => {
