@@ -106,7 +106,7 @@ const DisplayCard = (props) => {
     } else {
       dateFrom = format(new Date(data.dateFrom), "dd/MM/yy");
     }
-    if (props.dateTo === "") {
+    if (data.dateTo === "") {
       dateFrom = null;
     } else {
       dateTo = format(new Date(data.dateTo), "dd/MM/yy");
